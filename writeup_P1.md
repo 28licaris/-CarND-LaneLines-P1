@@ -56,10 +56,10 @@ Draw Lane Lines Modification:
 * Lines with slope not in the range 0.5 to 1.5 (left lane) or -0.5 to -1.5 (right lane) are ignored
     * This will filter out slopes that are very close to 0 (horizontal lines) and
       other slopes that would not make sense for a lane line
-* Next use cv2.fitLine() on the points for the left and right lane line (This should return a fitted line )
-* Calcualte the intercept for both lanes using the average position and equation of a line (solve for b)
-* Find the max and min for y, max is image height, min is the gloabl min of the averaged y points for the left and right lane line
-* Find the start and end points in the region of interest by solving for x given the y_min and y_max for both lanes
+* Next use cv2.fitLine() on the points for the left and right lane line (This should return a fitted line that would represent avg position)
+* Calculate the slope and intercept for both lanes
+* Find the max and min for y, max is image height, min is the top of the region of interest
+* Solve x for y_min and y_max for using the slope and intercept from each lane line calculated before
 * Draw final extrapolated lane lines on the original image
 
 Below is a image for each step of the pipeline:
